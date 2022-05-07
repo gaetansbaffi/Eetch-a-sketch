@@ -5,6 +5,12 @@ let input = document.querySelector("input");
 let colorChoice = document.querySelector("#color");
 
 function createBoard(number = 10) {
+  if (isNaN(number)) {
+    number = 10;
+  } else if (number > 100) {
+    number = 100;
+  }
+  console.log(number);
   container.innerHTML = "";
   for (let index = 1; index <= number * number; index++) {
     let div = document.createElement("div");
@@ -31,7 +37,6 @@ function getRandomColor() {
 }
 
 function hoverEffect(e) {
-  console.log("hi");
   if (colorChoice.checked) {
     e.target.style.backgroundColor = getRandomColor();
   } else {
