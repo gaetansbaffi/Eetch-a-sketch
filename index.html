@@ -8,19 +8,30 @@
     <title>Eetch A Sketch!</title>
   </head>
   <body>
-    <h1>Eetch a sketch project!</h1>
-    <p>Hover the white table and draw me like one of your french girls!</p>
-    <div>
-      <label for="size">How big do you want the board to be ( 1 to 100 )</label>
-      <input type="text" />
+    <div class="globalContainer">
+      <div class="left">
+        <div class="options">
+          <div class="input">
+            <label for="size"
+              >How big do you want the board to be ( 1 to 100 )</label
+            >
+            <input type="text" />
+          </div>
+          <div class="input">
+            <label for="size">Multicolor</label>
+            <input type="checkbox" name="color" id="color" />
+          </div>
+          <div class="buttons">
+            <button id="generate">Generate</button>
+            <button id="clear">Clear</button>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <h1>Eetch a sketch project!</h1>
+        <div id="container"></div>
+      </div>
     </div>
-    <div>
-      <label for="size">Multicolor</label>
-      <input type="checkbox" name="color" id="color" />
-    </div>
-    <button id="generate">Generate</button>
-    <button id="clear">Clear</button>
-    <div id="container"></div>
   </body>
   <script src="./app.js"></script>
 </html>

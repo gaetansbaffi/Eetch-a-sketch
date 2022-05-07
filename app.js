@@ -11,7 +11,7 @@ function createBoard(number = 10) {
     div.setAttribute("id", index);
     div.className = "square";
     container.append(div);
-    div.style.height = div.style.width = `${960 / number}px`;
+    div.style.height = div.style.width = `${600 / number}px`;
   }
 
   let squares = container.querySelectorAll("div");
