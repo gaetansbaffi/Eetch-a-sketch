@@ -1,23 +1,49 @@
 let container = document.querySelector("#container");
+let buttonGenerate = document.querySelector("#generate");
+let buttonClear = document.querySelector("#clear");
+let input = document.querySelector("input");
+let colorChoice = document.querySelector("#color");
 
 function createBoard(number = 10) {
+  container.innerHTML = "";
   for (let index = 1; index <= number * number; index++) {
     let div = document.createElement("div");
     div.setAttribute("id", index);
     div.className = "square";
     container.append(div);
-    let squaredNumber = number * 10;
-    container.style.height = `${squaredNumber}px`;
-    container.style.width = `${squaredNumber}px`;
+    div.style.height = div.style.width = `${960 / number}px`;
+  }
+
+  let squares = container.querySelectorAll("div");
+
+  squares.forEach((square) =>
+    square.addEventListener("mouseover", (e) => hoverEffect(e))
+  );
+}
+
+function getRandomColor() {
+  var letters = "0123456789ABCDEF";
+  var color = "#";
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+function hoverEffect(e) {
+  console.log("hi");
+  if (colorChoice.checked) {
+    e.target.style.backgroundColor = getRandomColor();
+  } else {
+    e.target.className += " black";
   }
 }
 
-createBoard(100);
+createBoard(10);
 
-let squares = container.querySelectorAll("div");
-
-squares.forEach((square) =>
-  square.addEventListener("mouseover", (e) =>
-    console.log((e.target.className += " black"))
-  )
+buttonGenerate.addEventListener("click", (e) =>
+  createBoard(parseInt(input.value || 10))
+);
+buttonClear.addEventListener("click", (e) =>
+  createBoard(parseInt(input.value || 10))
 );

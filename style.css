@@ -3,10 +3,12 @@
 }
 
 #container {
-  border: -3px black solid;
+  padding: -3px black solid;
+  border: 3px black solid;
   display: flex;
   flex-wrap: wrap;
-  background-color: red;
+  width: 966px;
+  height: 966px;
 }
 
 .square {
